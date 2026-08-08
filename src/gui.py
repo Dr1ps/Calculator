@@ -8,7 +8,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Classic Calculator")
-        self.resize(500, 300)
+        self.setFixedSize(400, 500)
 
         label = QLabel("Hello!")
         self.setCentralWidget(label)

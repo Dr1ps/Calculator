@@ -10,4 +10,4 @@ It is also realized with the intent of starting to develop desktop apps as a tra
 
 ## LICENCE
 This project is licensed under the MIT License.
-This project uses PySide6/Qt, which is distributed under its applicable LGPL/GPL licensing terms.
+This project uses PySide6, which is distributed under its applicable LGPL licensing terms.
