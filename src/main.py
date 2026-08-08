@@ -1,11 +1,13 @@
 import sys
 
-from PySide6.QtWidgets import QApplication, QLabel
+from gui import MainWindow
+
+from PySide6.QtWidgets import QApplication
 
 
 app = QApplication(sys.argv)
 
-label = QLabel("Hello, PySide6!")
-label.show()
+window = MainWindow()
+window.show()
 
 sys.exit(app.exec())
