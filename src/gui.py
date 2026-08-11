@@ -2,6 +2,8 @@ import calculator
 
 from PySide6.QtWidgets import QWidget, QPushButton, QMainWindow, QGridLayout, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit
 
+expression = ""
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -151,6 +153,52 @@ class MainWindow(QMainWindow):
         zeroButton.setText("0")
         zeroButton.setMinimumHeight(40)
 
+        plusButton.clicked.connect(lambda: self.construct("+"))
+        minusButton.clicked.connect(lambda: self.construct("-"))
+        multiplyButton.clicked.connect(lambda: self.construct("×"))
+        divideButton.clicked.connect(lambda: self.construct("÷"))
+        moduloButton.clicked.connect(lambda: self.construct("%"))
+        sqrtButton.clicked.connect(lambda: self.construct("√"))
+        squareButton.clicked.connect(lambda: self.construct("x²"))
+        powerButton.clicked.connect(lambda: self.construct("xʸ"))
+        plusMinusButton.clicked.connect(lambda: self.construct("±"))
+        absoluteValueButton.clicked.connect(lambda: self.construct("|x|"))
+        equalsButton.clicked.connect(lambda: self.construct("="))
+        periodButton.clicked.connect(lambda: self.construct("."))
+        decimalLeftButton.clicked.connect(lambda: self.construct("←."))
+        decimalRightButton.clicked.connect(lambda: self.construct(".→"))
+        cancelButton.clicked.connect(lambda: self.construct("C"))
+        backspaceButton.clicked.connect(lambda: self.construct("⌫"))
+        sinButton.clicked.connect(lambda: self.construct("sin"))
+        cosButton.clicked.connect(lambda: self.construct("cos"))
+        tanButton.clicked.connect(lambda: self.construct("tan"))
+        logButton.clicked.connect(lambda: self.construct("log"))
+        customLogButton.clicked.connect(lambda: self.construct("logₓy"))
+        lnButton.clicked.connect(lambda: self.construct("ln"))
+        factorialButton.clicked.connect(lambda: self.construct("n!"))
+        modButton.clicked.connect(lambda: self.construct("mod"))
+        piButton.clicked.connect(lambda: self.construct("π"))
+        eButton.clicked.connect(lambda: self.construct("e"))
+        openParenButton.clicked.connect(lambda: self.construct("("))
+        closeParenButton.clicked.connect(lambda: self.construct(")"))
+        reciprocalButton.clicked.connect(lambda: self.construct("1/x"))
+        expButton.clicked.connect(lambda: self.construct("exp"))
+        asinButton.clicked.connect(lambda: self.construct("sin⁻¹"))
+        acosButton.clicked.connect(lambda: self.construct("cos⁻¹"))
+        atanButton.clicked.connect(lambda: self.construct("tan⁻¹"))
+        xRootButton.clicked.connect(lambda: self.construct("ˣ√"))
+
+        oneButton.clicked.connect(lambda: self.construct("1"))
+        twoButton.clicked.connect(lambda: self.construct("2"))
+        threeButton.clicked.connect(lambda: self.construct("3"))
+        fourButton.clicked.connect(lambda: self.construct("4"))
+        fiveButton.clicked.connect(lambda: self.construct("5"))
+        sixButton.clicked.connect(lambda: self.construct("6"))
+        sevenButton.clicked.connect(lambda: self.construct("7"))
+        eightButton.clicked.connect(lambda: self.construct("8"))
+        nineButton.clicked.connect(lambda: self.construct("9"))
+        zeroButton.clicked.connect(lambda: self.construct("0"))
+
         # ADDING BUTTONS TO GRID
         buttonsGrid.addWidget(piButton, 0, 0)
         buttonsGrid.addWidget(eButton, 0, 1)
@@ -197,13 +245,22 @@ class MainWindow(QMainWindow):
         buttonsGrid.addWidget(equalsButton, 6, 0, 1, 7)
 
         # NUMBERS AND RESULT SCREEN
-        screen = QLineEdit()
-        screen.setReadOnly(True)
-        screen.setFixedHeight(100)
-
+        self.screen = QLineEdit()
+        self.screen.setReadOnly(True)
+        self.screen.setFixedHeight(100)
         # MAIN LAYOUT IS BUILT
-        mainLayout.addWidget(screen)
+        mainLayout.addWidget(self.screen)
         mainLayout.addLayout(buttonsGrid)
 
         # MAIN LAYOUT IS SET
         self.setCentralWidget(mainContainer)
+
+    def construct(self, parameter):
+        if (parameter == "="):
+            self.send()
+            return
+        self.screen.setText(self.screen.text() + parameter)
+
+    def send(self):
+        res = calculator.calculate(self.screen.text())
+        self.screen.setText(res)
