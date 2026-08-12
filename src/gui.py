@@ -121,7 +121,7 @@ class MainWindow(QMainWindow):
         xRootButton.setText("ˣ√")
         xRootButton.setMinimumHeight(40)
 
-        # CIFERS BUTTONS
+        # DIGIT BUTTONS
         oneButton = QPushButton()
         oneButton.setText("1")
         oneButton.setMinimumHeight(40)
@@ -153,22 +153,23 @@ class MainWindow(QMainWindow):
         zeroButton.setText("0")
         zeroButton.setMinimumHeight(40)
 
+        # CONNECTING FUNCTIONS TO FUNCTIONAL BUTTONS
         plusButton.clicked.connect(lambda: self.construct("+"))
         minusButton.clicked.connect(lambda: self.construct("-"))
         multiplyButton.clicked.connect(lambda: self.construct("×"))
         divideButton.clicked.connect(lambda: self.construct("÷"))
         moduloButton.clicked.connect(lambda: self.construct("%"))
         sqrtButton.clicked.connect(lambda: self.construct("√"))
-        squareButton.clicked.connect(lambda: self.construct("x²"))
-        powerButton.clicked.connect(lambda: self.construct("xʸ"))
+        squareButton.clicked.connect(lambda: self.construct("^2"))
+        powerButton.clicked.connect(lambda: self.construct("^"))
         plusMinusButton.clicked.connect(lambda: self.construct("±"))
         absoluteValueButton.clicked.connect(lambda: self.construct("|x|"))
         equalsButton.clicked.connect(lambda: self.construct("="))
         periodButton.clicked.connect(lambda: self.construct("."))
         decimalLeftButton.clicked.connect(lambda: self.construct("←."))
         decimalRightButton.clicked.connect(lambda: self.construct(".→"))
-        cancelButton.clicked.connect(lambda: self.construct("C"))
-        backspaceButton.clicked.connect(lambda: self.construct("⌫"))
+        cancelButton.clicked.connect(lambda: self.clearScreen())
+        backspaceButton.clicked.connect(lambda: self.cancelChar())
         sinButton.clicked.connect(lambda: self.construct("sin"))
         cosButton.clicked.connect(lambda: self.construct("cos"))
         tanButton.clicked.connect(lambda: self.construct("tan"))
@@ -188,6 +189,7 @@ class MainWindow(QMainWindow):
         atanButton.clicked.connect(lambda: self.construct("tan⁻¹"))
         xRootButton.clicked.connect(lambda: self.construct("ˣ√"))
 
+        # CONNECTING FUNCTIONS TO DIGIT NUMBERS
         oneButton.clicked.connect(lambda: self.construct("1"))
         twoButton.clicked.connect(lambda: self.construct("2"))
         threeButton.clicked.connect(lambda: self.construct("3"))
@@ -265,3 +267,10 @@ class MainWindow(QMainWindow):
         expression: str = str(self.screen.text())
         res = calculator.calculate(expression)
         self.screen.setText(str(res))
+
+    def cancelChar(self):
+        expression: str = str(self.screen.text())
+        self.screen.setText(expression[:-1])
+
+    def clearScreen(self):
+        self.screen.setText("")

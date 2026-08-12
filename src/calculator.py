@@ -19,11 +19,16 @@ def calculate(expression: str) -> number | None:
     if (not expression or expression == ""):
         return None
     expression = buildExpression(expression)
-    result = eval(expression)
-    if isinstance(result, (int, float)):
-        return result
-
-    return None
+    try:
+        result = eval(expression)
+    except ZeroDivisionError as e:
+        return "Math Error"
+    except (NameError, SyntaxError) as e:
+        return "Syntax Error"
+    else:
+        if isinstance(result, (int, float)):
+            return result
+        return None
 
 
 def buildExpression(expression: str) -> str:
