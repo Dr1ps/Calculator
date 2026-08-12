@@ -27,8 +27,11 @@ def calculate(expression: str) -> number | None:
 
 
 def buildExpression(expression: str) -> str:
-    expression.replace("x", "*")
-    expression.replace("^", "**")
+    expression = expression.replace("x", "*")
+    expression = expression.replace("×", "*")
+    expression = expression.replace("÷", "/")
+    expression = expression.replace("^", "**")
+    return expression
 
 
 def add(a: number, b: number) -> number:

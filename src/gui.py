@@ -262,5 +262,6 @@ class MainWindow(QMainWindow):
         self.screen.setText(self.screen.text() + parameter)
 
     def send(self):
-        res = calculator.calculate(self.screen.text())
-        self.screen.setText(res)
+        expression: str = str(self.screen.text())
+        res = calculator.calculate(expression)
+        self.screen.setText(str(res))
