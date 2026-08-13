@@ -16,6 +16,7 @@ class ShiftDirection(Enum):
 
 
 def calculate(expression: str) -> number | None:
+    global PI
     if (not expression or expression == ""):
         return None
     expression = buildExpression(expression)
@@ -32,10 +33,14 @@ def calculate(expression: str) -> number | None:
 
 
 def buildExpression(expression: str) -> str:
+    global PI
+    global E
     expression = expression.replace("x", "*")
     expression = expression.replace("×", "*")
     expression = expression.replace("÷", "/")
     expression = expression.replace("^", "**")
+    expression = expression.replace("π", "PI")
+    expression = expression.replace("e", "E")
     return expression
 
 
