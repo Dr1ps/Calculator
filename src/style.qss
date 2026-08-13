@@ -1,4 +1,224 @@
+QWidget {
+    font-family: "Segoe UI", "Arial";
+}
+
+QMainWindow {
+    background-color: #1e1f22;
+}
+
+
+/* =========================================================
+   DISPLAY
+   ========================================================= */
+
 #screen {
-    font-size: 18px;
-    padding: 4px;
+    background-color: #2b2d31;
+    color: #f2f3f5;
+
+    border: 1px solid #3b3d42;
+    border-radius: 12px;
+
+    padding: 10px 16px;
+
+    font-size: 32px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   ALL BUTTONS
+   ========================================================= */
+
+QPushButton {
+    background-color: #2b2d31;
+    color: #e8eaed;
+
+    border: 1px solid #3b3d42;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #363940;
+    border-color: #4b4e55;
+}
+
+QPushButton:pressed {
+    background-color: #454850;
+}
+
+
+/* =========================================================
+   BASIC OPERATORS
+   +  -  ×  ÷  %
+   ========================================================= */
+
+QPushButton[text="+"],
+QPushButton[text="-"],
+QPushButton[text="×"],
+QPushButton[text="÷"],
+QPushButton[text="%"] {
+    background-color: #3a5f8a;
+    color: white;
+    border: none;
+}
+
+QPushButton[text="+"]:hover,
+QPushButton[text="-"]:hover,
+QPushButton[text="×"]:hover,
+QPushButton[text="÷"]:hover,
+QPushButton[text="%"]:hover {
+    background-color: #4774a5;
+}
+
+QPushButton[text="+"]:pressed,
+QPushButton[text="-"]:pressed,
+QPushButton[text="×"]:pressed,
+QPushButton[text="÷"]:pressed,
+QPushButton[text="%"]:pressed {
+    background-color: #304f74;
+}
+
+
+/* =========================================================
+   EQUALS
+   ========================================================= */
+
+QPushButton[text="="] {
+    background-color: #4c8d6b;
+    color: white;
+
+    border: none;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+QPushButton[text="="]:hover {
+    background-color: #5aa57d;
+}
+
+QPushButton[text="="]:pressed {
+    background-color: #3f7659;
+}
+
+
+/* =========================================================
+   CLEAR
+   ========================================================= */
+
+QPushButton[text="C"] {
+    background-color: #8f4b4b;
+    color: white;
+
+    border: none;
+    font-weight: bold;
+}
+
+QPushButton[text="C"]:hover {
+    background-color: #a45757;
+}
+
+QPushButton[text="C"]:pressed {
+    background-color: #763e3e;
+}
+
+
+/* =========================================================
+   ALL NON-DIGIT / NON-BASIC-OPERATOR BUTTONS
+   Same color
+   ========================================================= */
+
+QPushButton[text="sin"],
+QPushButton[text="cos"],
+QPushButton[text="tan"],
+QPushButton[text="sin⁻¹"],
+QPushButton[text="cos⁻¹"],
+QPushButton[text="tan⁻¹"],
+QPushButton[text="log"],
+QPushButton[text="logₓy"],
+QPushButton[text="ln"],
+QPushButton[text="n!"],
+QPushButton[text="mod"],
+QPushButton[text="√"],
+QPushButton[text="ˣ√"],
+QPushButton[text="x²"],
+QPushButton[text="xʸ"],
+QPushButton[text="±"],
+QPushButton[text="|x|"],
+QPushButton[text="π"],
+QPushButton[text="e"],
+QPushButton[text="("],
+QPushButton[text=")"],
+QPushButton[text="1/x"],
+QPushButton[text="exp"],
+QPushButton[text="←."],
+QPushButton[text=".→"],
+QPushButton[text="⌫"] {
+    background-color: #35373d;
+    color: #d6d8dc;
+
+    border: 1px solid #42454c;
+}
+
+QPushButton[text="sin"]:hover,
+QPushButton[text="cos"]:hover,
+QPushButton[text="tan"]:hover,
+QPushButton[text="sin⁻¹"]:hover,
+QPushButton[text="cos⁻¹"]:hover,
+QPushButton[text="tan⁻¹"]:hover,
+QPushButton[text="log"]:hover,
+QPushButton[text="logₓy"]:hover,
+QPushButton[text="ln"]:hover,
+QPushButton[text="n!"]:hover,
+QPushButton[text="mod"]:hover,
+QPushButton[text="√"]:hover,
+QPushButton[text="ˣ√"]:hover,
+QPushButton[text="x²"]:hover,
+QPushButton[text="xʸ"]:hover,
+QPushButton[text="±"]:hover,
+QPushButton[text="|x|"]:hover,
+QPushButton[text="π"]:hover,
+QPushButton[text="e"]:hover,
+QPushButton[text="("]:hover,
+QPushButton[text=")"]:hover,
+QPushButton[text="1/x"]:hover,
+QPushButton[text="exp"]:hover,
+QPushButton[text="←."]:hover,
+QPushButton[text=".→"]:hover,
+QPushButton[text="⌫"]:hover {
+    background-color: #40434a;
+}
+
+QPushButton[text="sin"]:pressed,
+QPushButton[text="cos"]:pressed,
+QPushButton[text="tan"]:pressed,
+QPushButton[text="sin⁻¹"]:pressed,
+QPushButton[text="cos⁻¹"]:pressed,
+QPushButton[text="tan⁻¹"]:pressed,
+QPushButton[text="log"]:pressed,
+QPushButton[text="logₓy"]:pressed,
+QPushButton[text="ln"]:pressed,
+QPushButton[text="n!"]:pressed,
+QPushButton[text="mod"]:pressed,
+QPushButton[text="√"]:pressed,
+QPushButton[text="ˣ√"]:pressed,
+QPushButton[text="x²"]:pressed,
+QPushButton[text="xʸ"]:pressed,
+QPushButton[text="±"]:pressed,
+QPushButton[text="|x|"]:pressed,
+QPushButton[text="π"]:pressed,
+QPushButton[text="e"]:pressed,
+QPushButton[text="("]:pressed,
+QPushButton[text=")"]:pressed,
+QPushButton[text="1/x"]:pressed,
+QPushButton[text="exp"]:pressed,
+QPushButton[text="←."]:pressed,
+QPushButton[text=".→"]:pressed,
+QPushButton[text="⌫"]:pressed {
+    background-color: #4a4d55;
 }
