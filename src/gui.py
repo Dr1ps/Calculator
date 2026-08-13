@@ -1,11 +1,12 @@
 import calculator
-
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QWidget, QPushButton, QMainWindow, QGridLayout, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit
 
-expression = ""
+phrase = ""
 
 
 class MainWindow(QMainWindow):
+
     def __init__(self):
         super().__init__()
 
@@ -250,6 +251,8 @@ class MainWindow(QMainWindow):
         self.screen = QLineEdit()
         self.screen.setReadOnly(True)
         self.screen.setFixedHeight(100)
+        self.screen.setAlignment(Qt.AlignmentFlag.AlignRight)
+        self.screen.setObjectName("screen")
         # MAIN LAYOUT IS BUILT
         mainLayout.addWidget(self.screen)
         mainLayout.addLayout(buttonsGrid)
