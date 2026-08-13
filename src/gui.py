@@ -107,7 +107,7 @@ class MainWindow(QMainWindow):
         reciprocalButton.setText("1/x")
         reciprocalButton.setMinimumHeight(40)
         expButton = QPushButton()
-        expButton.setText("exp")
+        expButton.setText("EXP")
         expButton.setMinimumHeight(40)
         asinButton = QPushButton()
         asinButton.setText("sin⁻¹")
@@ -184,7 +184,7 @@ class MainWindow(QMainWindow):
         openParenButton.clicked.connect(lambda: self.construct("("))
         closeParenButton.clicked.connect(lambda: self.construct(")"))
         reciprocalButton.clicked.connect(lambda: self.construct("1/x"))
-        expButton.clicked.connect(lambda: self.construct("exp"))
+        expButton.clicked.connect(lambda: self.construct("EXP"))
         asinButton.clicked.connect(lambda: self.construct("sin⁻¹"))
         acosButton.clicked.connect(lambda: self.construct("cos⁻¹"))
         atanButton.clicked.connect(lambda: self.construct("tan⁻¹"))
@@ -263,6 +263,9 @@ class MainWindow(QMainWindow):
     def construct(self, parameter):
         if (parameter == "="):
             self.send()
+            return
+        if (parameter == "1/x"):
+            self.screen.setText("1/(" + self.screen.text() + ")")
             return
         self.screen.setText(self.screen.text() + parameter)
 

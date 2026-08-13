@@ -35,6 +35,7 @@ def calculate(expression: str) -> number | None:
 def buildExpression(expression: str) -> str:
     global PI
     global E
+    expression = expression.replace("EXP", "*10^")
     expression = expression.replace("x", "*")
     expression = expression.replace("×", "*")
     expression = expression.replace("÷", "/")
